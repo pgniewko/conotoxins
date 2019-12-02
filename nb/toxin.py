@@ -2,6 +2,7 @@ from pydpi.pypro import PyPro
 
 class Toxin():
     def __init__(self,
+                 pid,
                  seq,
                  name,
                  toxin_class,
@@ -11,8 +12,10 @@ class Toxin():
                  pharmacologicalFamily,
                  isoelecticPoint,
                  clean_seq=True): 
-                 ): 
 
+        if pid is None:
+            print ("Protein id given: None")
+        self.pid = pid
         self.seq = seq
         self.name = name
         self.toxin_class = toxin_class
@@ -24,6 +27,12 @@ class Toxin():
         self.clean_seq = clean_seq
 
         self.features = None
+
+    def get_organism(self):
+        return self.organism
+
+    def get_pharmacologicalFamily(self):
+        return self.pharmacologicalFamily
 
     def get_features(self):
         if self.features is not None:
@@ -51,7 +60,11 @@ class Toxin():
         return self.features
 
     def _clean_seq(self):
-        #TODO: This is temporary.
+        """For sequences that contain non-standard residues, the non-standard 
+        residues is replaced by their parent amino acids. 
+        In cases where no parent amino acids were available, 
+        these residues were either deleted or replaced by a glycine residue."""
+        #TODO: Implement above
         self.seq = self.seq.replace('X','')
 
 
@@ -61,8 +74,30 @@ class Toxin():
         else:
             return 0
 
+
     def __str__(self):
         if self.seq is not None:
-            return self.seq
+            out_string =f'{self.pid}\n{self.toxin_class}\n{self.geneSuperfamily}\n{self.organism}\n{self.seq}\n{self.pharmacologicalFamily}'
+            return out_string
         else:
             return None
+    
+    def __eq__(self, pid):
+        """ Seach by protein id"""
+        if (self.pid == pid):
+            return True
+        else:
+            return False
+
+    def copy(self):
+        return Toxin(self.pid,
+                     self.seq,
+                     self.name,
+                     self.toxin_class,
+                     self.organism,
+                     self.geneSuperfamily,
+                     self.cysteineFramewrok,
+                     self.pharmacologicalFamily,
+                     self.isoelecticPoint,
+                     clean_seq=self.clean_seq) 
+
