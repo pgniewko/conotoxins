@@ -2,6 +2,8 @@
 from collections import defaultdict
 from toxin import Toxin
 
+import numpy as np
+
 class Experiment():
     """
     :-P lazy Pawel
@@ -68,12 +70,19 @@ class Experiment():
         labels = []
         
         labels_dict = {}
+        labels_map = {}
         for i, key in enumerate(self.experient_data.keys()):
+            labels_map[i] = key
             for toxin_ in self.experient_data[key]:
-                feats = toxin_.get_features()
+                try:
+                    feats = toxin_.get_features()
+                except:
+                    print(f'Skipping {toxin_.get_pid()} protein, with a sequence: {toxin_.get_seq()}')
+                    continue
                 mat.append(feats)
                 labels.append(i)
 
-        return np.array(mat), np.array(labels)
+
+        return np.array(mat), np.array(labels), labels_map
 
 

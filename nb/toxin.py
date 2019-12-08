@@ -82,6 +82,9 @@ class Toxin():
         self.features = None
         self.modifications = []
 
+    def get_pid(self):
+        return self.pid
+
     def get_organism(self):
         return self.organism
 
@@ -110,9 +113,14 @@ class Toxin():
             self._clean_seq()
         cds.ReadProteinSequence(self.seq)
 
-        all_feats = cds.GetALL()
-        tpc_feats = cds.GetTPComp()
+        try:
+            all_feats = cds.GetALL()
+            tpc_feats = cds.GetTPComp()
+        except ZeroDivisionError  as e:
+            print (self.seq)
+            raise
 
+  
         all_feats_list = list(all_feats.values())
         if long_feats:
             tpc_feats_list = list(tpc_feats.values())
