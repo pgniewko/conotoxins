@@ -1,5 +1,58 @@
 from pydpi.pypro import PyPro
 
+AA_MODIFICATIONS = {'Benzoylphenylalanine': 'F',
+                     'C-term amidation': '',
+                     'Sulfotyrosine': 'Y',
+                     '4-Hydroxyproline': 'P',
+                     'Pyroglutamic acid': 'E',
+                     'Gamma carboxylic glutamic acid': 'E',
+                     'Any':'G',
+                     'D-leucine':'L',
+                     'D-phenylalanine':'F',
+                     'D-methionine':'M',
+                     'D-tryptophan':'W',
+                     'D-tyrosine':'Y',
+                     'Bromotryptophan':'W',
+                     'glycosylated serine': 'S',
+                     '2_2-dimethylthiazolidine':'G',
+                     'glycosylated threonine':'T',
+                     'Oxomethionine': 'M',
+                     'Selenocystine (half)': 'C',
+                     'gamma-hydroxy-D-valine':'V',
+                     '5-hydroxy-lysine': 'K',
+                     'Norleucine': 'L',
+                     'N-Acetate (on N-terminus)': '',
+                     '3-iodotyrosine':'Y',
+                     '5-amino-3-oxo-pentanoic acid':'G',
+                     '2-amino-DL-dodecanoic acid': 'G',
+                     'Carbabridge [C2 unsaturated] (half)': 'G',
+                     'alpha-aminobutyric acid': 'G',
+                     'Asymmetric dimethylarginine': 'R',
+                     '4-(R)-amino-proline': 'P',
+                     '4-(S)-amino-proline': 'P',
+                     '4-(R)-guanidino-proline': 'P',
+                     '4-(R)-betainamidyl-proline': 'P',
+                     '4-(R)-fluoro-proline': 'P',
+                     '4-(S)-fluoro-proline': 'P',
+                     '4-(R)-phenyl-proline': 'P',
+                     '4-(S)-phenyl-proline': 'P',
+                     '4-(R)-benzyl-proline': 'P',
+                     '4-(S)-benzyl-proline': 'P',
+                     '4-(R)-1-naphtylmehyl-proline': 'P',
+                     '4-(S)-1-naphtylmehyl-proline': 'P',
+                     '3-(R)-phenyl-proline': 'P',
+                     '3-(S)-phenyl-proline': 'P',
+                     '5-(R)-phenyl-proline': 'P',
+                     '5-(S)-phenyl-proline': 'P',
+                     'Diiodotyrosine': 'Y',
+                     'D-alanine': 'A',
+                     'Carbabridge [C4 unsaturated] (half)':'G',
+                     'Carbabridge [C4 saturated] (half)': 'G',
+                     'Carbabridge [C7 unsaturated] (half)': 'G',
+                     ' L-4,5-dithiolnorvaline': 'V',
+                     }
+
+
 class Toxin():
     def __init__(self,
                  pid,
@@ -27,9 +80,13 @@ class Toxin():
         self.clean_seq = clean_seq
 
         self.features = None
+        self.modifications = []
 
     def get_organism(self):
         return self.organism
+
+    def get_seq(self):
+        return self.seq
 
     def get_pharmacologicalFamily(self):
         return self.pharmacologicalFamily
@@ -41,6 +98,11 @@ class Toxin():
             self._calc_features()
             return self.features
         return None
+
+
+    def add_modification(self, mod):
+        self.modifications.append(mod)
+
 
     def _calc_features(self, long_feats=False):
         cds = PyPro()
@@ -64,7 +126,21 @@ class Toxin():
         residues is replaced by their parent amino acids. 
         In cases where no parent amino acids were available, 
         these residues were either deleted or replaced by a glycine residue."""
-        #TODO: Implement above
+        
+        if self.seq is None:
+            return 
+
+        seq_list = list(self.seq)
+
+        for mod in self.modifications:
+            position = int(mod['position']) - 1 
+            name = mod['name']
+            orig_aa = AA_MODIFICATIONS[name]
+            try:
+                seq_list[position] = orig_aa
+            except IndexError:
+                continue
+
         self.seq = self.seq.replace('X','')
 
 
