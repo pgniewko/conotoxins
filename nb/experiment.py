@@ -41,6 +41,8 @@ class Experiment():
         classes = []
         with open(fname, 'r') as fin:
             for line in fin:
+                if line.startswith("#"):
+                    continue
                 pairs = line.rstrip('\n').split()
                 pids.append(pairs[0]) 
                 seqs.append(pairs[1])
