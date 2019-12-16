@@ -14,15 +14,16 @@ class Experiment():
         self.min_val=min_val
         self.experient_data = None
 
-    def prepare_experiment(self):
+    def prepare_experiment(self, strict=True):
         first_run_dict = defaultdict(list)
         for toxin_ in self.toxins:
-            if self.excludeOrganism in toxin_.get_organism() or "None" in toxin_.get_organism():
-                continue
-            if "None" in toxin_.get_pharmacologicalFamily():
-                continue
-            if "None" in toxin_.get_seq():
-                continue
+            if strict:
+                if self.excludeOrganism in toxin_.get_organism() or "None" in toxin_.get_organism():
+                    continue
+                if "None" in toxin_.get_pharmacologicalFamily():
+                    continue
+                if "None" in toxin_.get_seq():
+                    continue
 
             first_run_dict[toxin_.get_pharmacologicalFamily()].append(toxin_.copy())
 
