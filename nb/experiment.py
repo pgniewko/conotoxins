@@ -1,24 +1,29 @@
+import logging
+import numpy as np
 
 from collections import defaultdict
 from toxin import Toxin
 
-import numpy as np
 
-class Experiment():
+class Experiment:
     """
     :-P lazy Pawel
     """
-    def __init__(self, toxins, excludeOrganism='synthetic', min_val=8):
+
+    def __init__(self, toxins, excludeOrganism="synthetic", min_val=8):
         self.toxins = [toxin_.copy() for toxin_ in toxins]
         self.excludeOrganism = excludeOrganism
-        self.min_val=min_val
+        self.min_val = min_val
         self.experient_data = None
 
     def prepare_experiment(self, strict=True):
         first_run_dict = defaultdict(list)
         for toxin_ in self.toxins:
             if strict:
-                if self.excludeOrganism in toxin_.get_organism() or "None" in toxin_.get_organism():
+                if (
+                    self.excludeOrganism in toxin_.get_organism()
+                    or "None" in toxin_.get_organism()
+                ):
                     continue
                 if "None" in toxin_.get_pharmacologicalFamily():
                     continue
@@ -33,29 +38,31 @@ class Experiment():
                 second_run_dict[k] = v
 
         self.experient_data = second_run_dict
-        
+
         return self.experient_data
 
     def experiment_from_file(self, fname):
         pids = []
         seqs = []
         classes = []
-        with open(fname, 'r') as fin:
+        with open(fname, "r") as fin:
             for line in fin:
                 if line.startswith("#"):
                     continue
-                pairs = line.rstrip('\n').split()
-                pids.append(pairs[0]) 
+                pairs = line.rstrip("\n").split()
+                pids.append(pairs[0])
                 seqs.append(pairs[1])
                 classes.append(pairs[2])
-       
+
         run_dict = defaultdict(list)
         for i, pid in enumerate(pids):
             # TODO: make sure toxins are defined
             try:
                 tox = self.toxins[self.toxins.index(pid)]
             except ValueError:
-                print(f"Can't find protein with id {pid}. Createing a new object with seq: {seqs[i]} and class: {classes[i]}")
+                logging.warning(
+                    f"Can't find protein with id {pid}. Createing a new object with seq: {seqs[i]} and class: {classes[i]}"
+                )
                 tax = Toxin(pid, seqs[i], "?", classes[i], "?", "?", "?", "?", "?")
             # TODO: make sure tox is not null
             run_dict[classes[i]].append(tox.copy())
@@ -71,7 +78,7 @@ class Experiment():
     def get_data(self):
         mat = []
         labels = []
-        
+
         labels_dict = {}
         labels_map = {}
         for i, key in enumerate(self.experient_data.keys()):
@@ -80,12 +87,11 @@ class Experiment():
                 try:
                     feats = toxin_.get_features()
                 except:
-                    print(f'Skipping {toxin_.get_pid()} protein, with a sequence: {toxin_.get_seq()}')
+                    logging.debug(
+                        f"Skipping {toxin_.get_pid()} protein, with a sequence: {toxin_.get_seq()}"
+                    )
                     continue
                 mat.append(feats)
                 labels.append(i)
 
-
         return np.array(mat), np.array(labels), labels_map
-
-
