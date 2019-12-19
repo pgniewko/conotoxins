@@ -15,18 +15,10 @@
 
 ### Conotoxins
 (Make this part better)
-Conotoxins are disulfide-rich small peptides that are invaluable channel-targeted peptides and target neuronal receptors.
-They show prospects for being potent pharmaceuticals in the treatment of Alzheimer's disease, Parkinson's disease, and epilepsy. 
-Accurate prediction of conotoxin superfamily would have many important applications towards the understanding of its biological and pharmacological functions.      
 
-
- Conotoxins are disulfide-rich small peptides, which are invaluable peptides that target ion channel and neuronal receptors. 
- Conotoxins have been demonstrated as potent pharmaceuticals in the treatment of a series of diseases, such as Alzheimer’s disease, Parkinson’s disease, and epilepsy. 
- In addition, conotoxins are also ideal molecular templates for the development of new drug lead compounds and play important roles in neurobiological research as well. 
- Thus, the accurate identification of conotoxin types will provide key clues for the biological research and clinical medicine. 
- Generally, conotoxin types are confirmed when their sequence, structure, and function are experimentally validated. 
- However, it is time-consuming and costly to acquire the structure and function information by using biochemical experiments.
- Therefore, it is important to develop computational tools for efficiently and effectively recognizing conotoxin types based on sequence information. 
+Conotoxins are disulfide-rich small peptides that are channel-targeted peptides and target neuronal receptors.
+They show prospects for being potent pharmaceuticals in treatments for many neurodegenerative diseases.
+Only about 1% of all conopeptides have structural and functional data, and identification of conotoxins superfamily would have many important applications towards the understanding of its biological and pharmacological functions, but only 
 
 
 ### Datasets      
@@ -68,8 +60,7 @@ Hui Ding, En-Ze Deng,1 Lu-Feng Yuan, Li Liu, Hao Lin, Wei Chen, and Kuo-Chen Cho
 
 ### Ideas:      
 1. Explore other dimensionality reduction techniques.     
-2. Use the technique used in protein class classification with covariance matrix (Chou?).    
-3. Compare the consistency between my automated way of creating benchmakrs and the manually curted one.    
+2. Compare the consistency between my automated way of creating benchmakrs and the manually curted one.    
 
 
 ### License
