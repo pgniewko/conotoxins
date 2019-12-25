@@ -71,7 +71,7 @@ from .protein.GetProteinFromUniprot import GetProteinSequence
 from .protein.ProCheck import ProteinCheck
 
 import string
-
+import logging
 
 class PyPro:
     """
@@ -126,8 +126,8 @@ class PyPro:
         index = ProteinCheck(ProteinSequence)
 
         if index == 0:
-            print("Error......")
-            print("Please input a correct protein.")
+            logging.warning(f"[py3dpi] Provided protein sequence is incorrect: {ProteinSequence}")
+            logging.warning("[py3dpi] Please input a correct protein.")
         else:
             self.ProteinSequence = ProteinSequence
 
