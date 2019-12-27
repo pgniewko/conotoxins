@@ -21,7 +21,7 @@ Only about 1% of all conopeptides have structural and functional data, and ident
 
 
 ### Datasets      
-1. Data downloaded from [ConoServer](http://www.conoserver.org/?page=download) (access date 11/19/19)      
+1. Data was downloaded from [ConoServer](http://www.conoserver.org/?page=download) (access date 11/19/19)      
 2. The original dataset was also [extracted](https://github.com/pgniewko/conotoxins/blob/master/data/ASA.PJS.2019.txt) from the paper.    
 
 
@@ -59,7 +59,7 @@ Hui Ding, En-Ze Deng,1 Lu-Feng Yuan, Li Liu, Hao Lin, Wei Chen, and Kuo-Chen Cho
 
 ### Todos:      
 1. Compare the consistency between my automated way of creating benchmakrs and the manually curted one.    
-
+2. Add error bars and 95% confidence intervals to the quality metrics values     
 
 ### License
 The library is open-source for academic and education users. If you want to use the library in any of your work please cite: *Pawel Gniewek*, _Machine learning study in conotoxins_, https://github.com/pgniewko/deep-toxin.        
