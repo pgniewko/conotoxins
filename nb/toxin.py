@@ -167,7 +167,7 @@ class Toxin:
             return None
 
     def __eq__(self, pid):
-        """ Seach by protein id"""
+        """Are pids the same"""
         if self.pid == pid:
             return True
         else:
