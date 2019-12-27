@@ -13,12 +13,11 @@
 [Ideas](#ideas)
 [License](#license)    
 
-### Conotoxins
-(Make this part better)
+### Conotoxins -- a short overview     
 
-Conotoxins are disulfide-rich small peptides that are channel-targeted peptides and target neuronal receptors.
+Conotoxins are disulfide-rich small peptides that are channel-targeted peptides and also target neuronal receptors.
 They show prospects for being potent pharmaceuticals in treatments for many neurodegenerative diseases.
-Only about 1% of all conopeptides have structural and functional data, and identification of conotoxins superfamily would have many important applications towards the understanding of its biological and pharmacological functions, but only 
+Only about 1% of all conopeptides have structural and functional data, and identification of conotoxins superfamily would have many important applications towards the understanding of its biological and pharmacological functions.       
 
 
 ### Datasets      
@@ -58,9 +57,8 @@ Hui Ding, En-Ze Deng,1 Lu-Feng Yuan, Li Liu, Hao Lin, Wei Chen, and Kuo-Chen Cho
 [[web-server]](http://lin-group.cn/server/iCTX-Type)
 
 
-### Ideas:      
-1. Explore other dimensionality reduction techniques.     
-2. Compare the consistency between my automated way of creating benchmakrs and the manually curted one.    
+### Todos:      
+1. Compare the consistency between my automated way of creating benchmakrs and the manually curted one.    
 
 
 ### License
