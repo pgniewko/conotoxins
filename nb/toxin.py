@@ -132,9 +132,9 @@ class Toxin:
         return self.features
 
     def _clean_seq(self):
-        """For sequences that contain non-standard residues, the non-standard 
-        residues is replaced by their parent amino acids. 
-        In cases where no parent amino acids were available, 
+        """For sequences that contain non-standard residues, the non-standard
+        residues is replaced by their parent amino acids.
+        In cases where no parent amino acids were available,
         these residues were either deleted or replaced by a glycine residue."""
 
         if self.seq is None:

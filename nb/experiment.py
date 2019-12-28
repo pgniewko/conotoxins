@@ -64,7 +64,7 @@ class Experiment:
                 logging.warning(
                     f"Can't find protein with id {pid}. Createing a new object with seq: {seqs[i]} and class: {classes[i]}"
                 )
-                tax = Toxin(pid, seqs[i], "?", classes[i], "?", "?", "?", "?", "?")
+                tox = Toxin(pid, seqs[i], "?", classes[i], "?", "?", "?", "?", "?")
             # TODO: make sure tox is not null
             run_dict[classes[i]].append(tox.copy())
         self.experient_data = run_dict
@@ -80,7 +80,6 @@ class Experiment:
         mat = []
         labels = []
 
-        labels_dict = {}
         labels_map = {}
         for i, key in enumerate(self.experient_data.keys()):
             labels_map[i] = key
@@ -99,10 +98,10 @@ class Experiment:
 
     def dump_data(self, fout, data, labels, labels_map):
         try:
-           f = open(fout, 'wb')
+            f = open(fout, "wb")
         except OSError:
-           logging.error(f"File {fout} can't be open for writing.")
-           return
+            logging.error(f"File {fout} can't be open for writing.")
+            return
 
         pickle.dump(data, f)
         pickle.dump(labels, f)
@@ -110,13 +109,12 @@ class Experiment:
 
     def load_data(self, fin):
         try:
-           f = open(fin, 'rb')
+            f = open(fin, "rb")
         except FileNotFoundError:
-           logging.error(f"File {fin} can't be found.")
-           return (None, None, None)
+            logging.error(f"File {fin} can't be found.")
+            return (None, None, None)
 
         data = pickle.load(f)
         labels = pickle.load(f)
         labels_map = pickle.load(f)
         return (data, labels, labels_map)
-
