@@ -17,20 +17,20 @@
 
 Conotoxins are disulfide-rich small peptides that are channel-targeted peptides and also target neuronal receptors.
 They show prospects for being potent pharmaceuticals in treatments for many neurodegenerative diseases.
-Only about 1% of all conopeptides have structural and functional data, and identification of conotoxins superfamily would have many important applications towards the understanding of its biological and pharmacological functions.       
+Only for about 1% of all conopeptides we have structural and functional data. Thus, a classification of conotoxins would have many important applications towards the understanding of its biological and pharmacological functions.       
 
 
 ### Datasets      
 1. Data was downloaded from [ConoServer](http://www.conoserver.org/?page=download) (access date 11/19/19)      
-2. The original dataset was also [extracted](https://github.com/pgniewko/conotoxins/blob/master/data/ASA.PJS.2019.txt) from the paper.    
+2. The original dataset was also [extracted](https://github.com/pgniewko/conotoxins/blob/master/data/ASA.PJS.2019.txt) from the [paper](https://github.com/pgniewko/conotoxins/blob/master/papers/ASA.PJS.2019.pdf).       
 
 
 ### Papers
 1. **Predicting the Molecular Targets of Conopeptides by using Principal Component Analysis
 and Multiclass Logistic Regression**           
 Xavier Eugenio Asuncion, Abdul-Rashid Sampaco III, Henry Adorna, Joselito Magadia, Vena Pearl Bongolan, and Arturo Lluisma.      
-*Philippine Journal of Science, 148 (S1): 237-245, 2019*        
-[[paper]](http://philjournalsci.dost.gov.ph/images/pdf/special_issue/148_S1/predicting_molecular_targets_.pdf)    
+*Philippine Journal of Science, 148 (S1): 237-245, 2019*             
+[[paper]](https://github.com/pgniewko/conotoxins/blob/master/papers/ASA.PJS.2019.pdf)          
 
 2. **Recent Advances in Conotoxin Classification by Using Machine Learning Methods**           
 Fu-Ying Dao, Hui Yang, Zhen-Dong Su, Wuritu Yang, Yun Wu, Hui Ding, Wei Chen, Hua Tang and Hao Lin       
@@ -46,15 +46,15 @@ Zhen Chen, Pei Zhao, Fuyi Li, et al.
 
 4. **PredCSF: An integrated feature-based approach for predicting conotoxin superfamily**      
 Fan YX, Song J, Shen HB, Kong X.      
-*Protein Pept Lett. 2011, 18(3):261-7.*       
+*Protein Pept Lett. 2011, 18(3):261-7*       
 [[papers]](http://www.eurekaselect.com/87458/article)    
 [[web-server]](http://www.csbio.sjtu.edu.cn/bioinf/PredCSF/)      
 
 5. **iCTX-Type: A Sequence-Based Predictor for Identifying the Types of Conotoxins in Targeting Ion Channels**     
 Hui Ding, En-Ze Deng,1 Lu-Feng Yuan, Li Liu, Hao Lin, Wei Chen, and Kuo-Chen Chou       
-*BioMed Research International Volume 2014, *
-[[paper]](https://www.hindawi.com/journals/bmri/2014/286419/)
-[[web-server]](http://lin-group.cn/server/iCTX-Type)
+*BioMed Research International, 2014: 286419*       
+[[paper]](https://www.hindawi.com/journals/bmri/2014/286419/)          
+[[web-server]](http://lin-group.cn/server/iCTX-Type)        
 
 
 ### Todos:      
