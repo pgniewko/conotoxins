@@ -9,9 +9,8 @@
 [Raw data](#data-preparation-and-model-training)           
 [Datasets](#datasets) information       
 [Results](https://github.com/pgniewko/conotoxins/blob/master/nb/tSNE-MLR.ipynb)      
-[Papers](#papers)    
-[Ideas](#ideas)
-[License](#license)    
+[Papers](#papers)     
+[License](#license)      
 
 ### Conotoxins -- a short overview     
 
@@ -57,10 +56,5 @@ Hui Ding, En-Ze Deng,1 Lu-Feng Yuan, Li Liu, Hao Lin, Wei Chen, and Kuo-Chen Cho
 [[web-server]](http://lin-group.cn/server/iCTX-Type)        
 
 
-### Todos:      
-1. Compare the consistency between my automated way of creating benchmakrs and the manually curted one.    
-2. Add error bars and 95% confidence intervals to the quality metrics values     
-
 ### License
 The library is open-source for academic and education users. If you want to use the library in any of your work please cite: *Pawel Gniewek*, _Machine learning study on conotoxins_, https://github.com/pgniewko/conotoxins.        
-
